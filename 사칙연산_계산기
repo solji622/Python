@@ -6,6 +6,6 @@ if (n == "+"):
 elif (n == "-"):
   print(num1, n, num2, "=", (num1-num2))
 elif (n == "/"):
-  print(num1, n, num2, "=", (num1/num2))
+  print(num1, n, num2, "=", int(num1/num2)) #값을 정수로 출력하고 싶을 때는 int 붙이기(안 붙이면 float형으로 출력)
 elif (n == "%"):
-  print(num1, n, num2, "=", (num1%num2))
+  print(num1, n, num2, "=", int(num1%num2))
