@@ -1,6 +1,5 @@
 import random
 rn = random.randrange(1, 101, 1)
-num = -1
 cnt = 0
 while True :
   n = int(input("숫자 입력: "))
