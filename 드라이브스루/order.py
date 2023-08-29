@@ -10,6 +10,12 @@ print()
 print("어서오세요 *입니다")
 print()
 
+
+#요리 재료 리스트로 쌓기 (제조 시 스텍으로 빼냄)
+hamburger_bun = [1,2,3,4]
+hamburger_patty = [1,2]
+cheese = [1,2]
+
 #음식 제조
 def cook():
   if order == 1 :
@@ -50,9 +56,3 @@ for i in guest:
   #손님 없을 경우
   if len(guest)==0:
     print("손님이 없습니다")
-
-
-#요리 재료 리스트로 쌓기 (제조 시 스텍으로 빼냄)
-hamburger_bun = [1,2,3,4]
-hamburger_patty = [1,2]
-cheese = [1,2]
