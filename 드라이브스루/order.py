@@ -1,5 +1,6 @@
 import random
 guest = []
+mistake = 0
 
 #손님 수를 랜덤으로 받음
 guestrn = random.randrange(1,11,1)
@@ -68,8 +69,13 @@ for i in range(1,guestrn+1,1):
   #주문 들어온 것과 요청이 맞지 않는 경우
   if order != a :
     print("맞지 않는 요청입니다. 다시 주문해주세요")
+
+    #직원 실수 누적시키기
+    mistake += 1
+    print("[👾] system: 실수",mistake,"번 누적되었습니다.")
     print("-"*40)
     continue
+
 
 
   #음식 제조 (cook 함수 사용)
@@ -91,3 +97,9 @@ for i in range(1,guestrn+1,1):
   #손님 없을 경우
   if len(guest)==0:
     print("손님이 없습니다")
+  
+  #실수 3회 이상 누적 시 해고
+  if mistake >= 3:
+      print()
+      print("[👾] system: 실수 3회 이상 누적으로 당신은 해고되었습니다.")
+      break
