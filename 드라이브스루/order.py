@@ -1,6 +1,6 @@
+#랜덤 객체 생성 및 손님 대기열 생성
 import random
 guest = []
-mistake_cnt = 0
 
 #손님 수를 랜덤으로 받음
 guestrn = random.randrange(1,11,1)
@@ -51,6 +51,7 @@ def cook():
 
 
 #손님 주문
+mistake_cnt = 0
 for i in range(1,guestrn+1,1):
   #랜덤 객체를 이용하여 손님의 주문을 랜덤으로 받음
   order = random.randrange(1,4,1)
@@ -76,7 +77,7 @@ for i in range(1,guestrn+1,1):
   #음식 제조 (cook 함수 사용)
   cook()
   print("-"*40)
-  
+
   if a == 1:
     print("주문하신 🍔햄버거 단품이 나왔습니다")
   elif a == 2:
