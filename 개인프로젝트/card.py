@@ -27,6 +27,12 @@ print("4. 누적 점수 3점이 되면 게임이 종료된다.")
 print("")
 
 # 랜덤 위치에 한쌍의 카드 넣기
+for i in range(len(card)):
+  card[rn1] = '■'
+  card[rn2] = '■'
 
-print(card)
+for i in range(len(card)):
+  print(card)
+  if i == 2 or i == 5 or i == 8 :
+    print("")
 # output.clear()
