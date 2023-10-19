@@ -3,9 +3,17 @@ import random
 
 # 길이 9의 1차원 배열 선언
 card = [0 for i in range(9)]
+
+# 랜덤 위치 뽑기
 rn1 = random.randrange(len(card))
 rn2 = random.randrange(len(card))
+# 두 숫자가 중복인 경우
+if rn1 == rn2 :
+  rn1 = random.randrange(len(card))
+  rn2 = random.randrange(len(card))
+
 print(rn1, rn2)
+
 
 #ANSI 코드를 사용하여 글씨를 굵게 출력
 print('\033[1m' + "« 카드 짝 맞추기 »"+ '\033[0m')
@@ -28,11 +36,18 @@ print("")
 
 # 랜덤 위치에 한쌍의 카드 넣기
 for i in range(len(card)):
-  card[rn1] = '■'
-  card[rn2] = '■'
+  card[rn1] = 1
+  card[rn2] = 1
+  if card[i] == 1 :
+    print(" ■ ", end="")
+    if i == 2 or i == 5 or i == 8:
+      print("")
+  else:
+    print(" □ ", end="")
+    if i == 2 or i == 5 or i == 8:
+      print("")
 
-for i in range(len(card)):
-  print(card)
-  if i == 2 or i == 5 or i == 8 :
-    print("")
+# 출력문 지우기
+for i in range(1, 4):
+  
 # output.clear()
