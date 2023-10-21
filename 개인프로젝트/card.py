@@ -1,53 +1,94 @@
+from ast import Return
 from google.colab import output
 import random
 
 # 길이 9의 1차원 배열 선언
 card = [0 for i in range(9)]
 
-# 랜덤 위치 뽑기
-rn1 = random.randrange(len(card))
-rn2 = random.randrange(len(card))
-# 두 숫자가 중복인 경우
-if rn1 == rn2 :
+while True:
+  # 랜덤 위치 뽑기
   rn1 = random.randrange(len(card))
   rn2 = random.randrange(len(card))
 
-print(rn1, rn2)
+  # 두 숫자가 중복인 경우
+  # if rn1 == rn2 :
+  #   rn1 == random.randrange(len(card))
+  #   rn2 == random.randrange(len(card))
 
+  print(rn1, rn2)
 
-#ANSI 코드를 사용하여 글씨를 굵게 출력
-print('\033[1m' + "« 카드 짝 맞추기 »"+ '\033[0m')
-print("")
+  #ANSI 코드를 사용하여 글씨를 굵게 출력
+  print('\033[1m' + "« 카드 짝 맞추기 »"+ '\033[0m')
+  print("")
 
-# 기본 카드 출력
-for i in range(len(card)):
-  print(" □ ", end="")
-  if i == 2 or i == 5 or i == 8:
-    print("")
-print("")
-
-# 게임 방법
-print("** 게임 방법 **")
-print("1. 9개의 빈카드에서 랜덤으로 등장하는 한쌍의 카드의 위치를 기억한다.")
-print("2. 출력된 카드가 사라진 뒤 나타나는 정답입력란에 위치를 입력한다.")
-print("3. 정답이면 1점이 추가되고 오답이면 1점이 줄어든다.")
-print("4. 누적 점수 3점이 되면 게임이 종료된다.")
-print("")
-
-# 랜덤 위치에 한쌍의 카드 넣기
-for i in range(len(card)):
-  card[rn1] = 1
-  card[rn2] = 1
-  if card[i] == 1 :
-    print(" ■ ", end="")
-    if i == 2 or i == 5 or i == 8:
-      print("")
-  else:
+  # 기본 카드 출력
+  for i in range(len(card)):
     print(" □ ", end="")
     if i == 2 or i == 5 or i == 8:
       print("")
+  print("")
 
-# 출력문 지우기
-for i in range(1, 4):
-  
-# output.clear()
+  # 게임 방법
+  print("** 게임 방법 **")
+  print("1. 9개의 빈카드에서 랜덤으로 등장하는 한쌍의 카드의 위치를 기억한다.")
+  print("2. 출력된 카드가 사라진 뒤 나타나는 정답입력란에 위치를 입력한다.")
+  print("3. 정답이면 1점이 추가되고 오답이면 1점이 줄어든다.")
+  print("4. 누적 점수 3점이 되면 게임이 종료된다.")
+  print("")
+
+  # 랜덤 위치에 한쌍의 카드 넣기
+  for i in range(len(card)):
+    card[rn1] = 1
+    card[rn2] = 1
+    if card[i] == 1 :
+      print(" ■ ", end="")
+      if i == 2 or i == 5 or i == 8:
+        print("")
+    else:
+      print(" □ ", end="")
+      if i == 2 or i == 5 or i == 8:
+        print("")
+
+  # 출력문 지우기
+  clear_num = int(input('카드를 지워주세요 [0]: '))
+  if clear_num == 0:
+    output.clear()
+
+  # 짝 맞추기
+  for i in range(len(card)):
+    print(" □ ", end="")
+    if i == 2 or i == 5 or i == 8:
+      print("")
+  print("")
+
+  print("카드 위치는 왼쪽에서 오른쪽으로")
+  print("0 1 2 | 3 4 5 | 6 7 8")
+  print("입니다. 정답을 입력해주세요")
+
+  score = 0
+  correct1 = int(input('정답[1]: '))
+  correct2 = int(input('정답[2]: '))
+
+  if correct1 == rn1 and correct2 == rn2 :
+    score += 1
+    print("정답입니다!")
+  elif correct1 == rn2 and correct2 == rn1 :
+    score += 1
+    print("정답입니다!")
+  else:
+    if score == 0:
+      score += 0
+    else :
+      score -= 1
+    print("오답입니다 😥")
+      
+  if score == 3:
+    print("3점을 달성하였습니다! 게임이 종료됩니다.")
+    break
+  else:
+    print("좀 더 노력해보세요!")
+    # #게임 재시작 시 랜덤 수 초기화
+    # if rn1 is not None and rn2 is not None:
+    #   rn1 = None
+    #   rn2 = None
+    continue
