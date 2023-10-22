@@ -1,18 +1,22 @@
 from google.colab import output
+#vs로 코딩할 경우
+#import os / os.system('cls')
 import random
 
 # 길이 9의 1차원 배열 선언
 card = [0 for i in range(9)]
+score = 0
 
 while True:
+  rn1 = None
+  rn2 = None
+  print("초기화; ", rn1, rn2)
   # 랜덤 위치 뽑기
-  rn1 = random.randrange(len(card))
-  rn2 = random.randrange(len(card))
-
-  # 두 숫자가 중복인 경우
-  # if rn1 == rn2 :
-  #   rn1 == random.randrange(len(card))
-  #   rn2 == random.randrange(len(card))
+  for i in range(2):
+    rn1 = random.randrange(len(card))
+    rn2 = random.randrange(len(card))
+    if rn1 == rn2 :
+      continue
 
   print(rn1, rn2)
 
@@ -64,7 +68,6 @@ while True:
   print("0 1 2 | 3 4 5 | 6 7 8")
   print("입니다. 정답을 입력해주세요")
 
-  score = 0
   correct1 = int(input('정답[1]: '))
   correct2 = int(input('정답[2]: '))
 
@@ -75,19 +78,12 @@ while True:
     score += 1
     print("정답입니다!")
   else:
-    if score == 0:
-      score += 0
-    else :
-      score -= 1
     print("오답입니다 😥")
       
   if score == 3:
     print("3점을 달성하였습니다! 게임이 종료됩니다.")
     break
   else:
+    print(score)
     print("좀 더 노력해보세요!")
-    # #게임 재시작 시 랜덤 수 초기화
-    # if rn1 is not None and rn2 is not None:
-    #   rn1 = None
-    #   rn2 = None
     continue
