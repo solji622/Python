@@ -10,15 +10,10 @@ score = 0
 while True:
   rn1 = None
   rn2 = None
-  print("초기화; ", rn1, rn2)
   # 랜덤 위치 뽑기
-  for i in range(2):
-    rn1 = random.randrange(len(card))
-    rn2 = random.randrange(len(card))
-    if rn1 == rn2 :
-      continue
-
-  print(rn1, rn2)
+  rn1 = random.randrange(len(card))
+  rn2 = random.randrange(len(card))
+  # print(rn1, rn2)
 
   #ANSI 코드를 사용하여 글씨를 굵게 출력
   print('\033[1m' + "« 카드 짝 맞추기 »"+ '\033[0m')
@@ -41,9 +36,9 @@ while True:
 
   # 랜덤 위치에 한쌍의 카드 넣기
   for i in range(len(card)):
-    card[rn1] = 1
-    card[rn2] = 1
-    if card[i] == 1 :
+    card[rn1] = rn1
+    card[rn2] = rn2
+    if card[i] == rn1 or card [i] == rn2:
       print(" ■ ", end="")
       if i == 2 or i == 5 or i == 8:
         print("")
@@ -84,6 +79,6 @@ while True:
     print("3점을 달성하였습니다! 게임이 종료됩니다.")
     break
   else:
-    print(score)
     print("좀 더 노력해보세요!")
+    print("")
     continue
