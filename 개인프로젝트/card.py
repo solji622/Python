@@ -7,13 +7,20 @@ import random
 card = [0 for i in range(9)]
 score = 0
 
+# 랜덤 숫자 뽑는 함수
+def random_num():
+  rn1 = random.randrange(len(card))
+  rn2 = random.randrange(len(card))
+
+  while rn1 == rn2:
+    rn2 = random.randrange(len(card))
+
+  return rn1, rn2
+
 while True:
   rn1 = None
   rn2 = None
-  # 랜덤 위치 뽑기
-  rn1 = random.randrange(len(card))
-  rn2 = random.randrange(len(card))
-  # print(rn1, rn2)
+  rn1, rn2 = random_num()
 
   #ANSI 코드를 사용하여 글씨를 굵게 출력
   print('\033[1m' + "« 카드 짝 맞추기 »"+ '\033[0m')
